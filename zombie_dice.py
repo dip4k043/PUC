@@ -25,11 +25,12 @@ dadoVerde = 'CPCTPC' #faces do dado verde; 3 cérebros, 2 passos e 1 tiro
 dadoAmarelo = 'TPCTPC' #faces do dado amarelo; 2 cérebros, 2 passos e 2 tiros
 dadoVermelho = 'TPCTPT' #faces do dado vermelho; 1 cérebro, 2 passos e 3 tiros
 
+#lista com os dados que ficam dentro do pote
 listaDados = [
     dadoVerde, dadoVerde, dadoVerde, dadoVerde, dadoVerde, dadoVerde, #6 dados verdes
     dadoAmarelo, dadoAmarelo, dadoAmarelo, dadoAmarelo, #4 dados amarelos
     dadoVermelho, dadoVermelho, dadoVermelho #3 dados verdes
-] #lista com os dados que ficam dentro do pote
+]
 
 print('--------------INÍCIO DO JOGO---------------') #mostra mensagem informando inicio do jogo
 
