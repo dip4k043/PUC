@@ -40,7 +40,7 @@ tiros = 0 #armazena dados com lado tiros
 cerebros = 0 #armazena dados com lado cerebros
 
 while True:
-    print("TURNO DO JOGADOR ", listaJogadores[jogadorAtual]) #mostra o jogador da vez
+    print("TURNO DO JOGADOR:  ", listaJogadores[jogadorAtual]) #mostra o jogador da vez
 
     for i in (0, 1, 2): #faça para os 3 dados:
         numSorteado = random.randint(0, 12) #sorteia um numero de 0 a 12 e armazena em numSorteado
@@ -56,25 +56,55 @@ while True:
         print('Dado sorteado: ', corDado) #mostra qual dado foi sorteado
         dadosSorteados.append(dadoSorteado) #appenda na lista de dados sorteados qual o dadoSorteado
 
-    print('As faces sorteadas foram: ') #
+    #Inicia lançamento dos dados sorteados
+    input('\nPressione ENTER para jogar os dados sorteados.')
+    print('\nAs faces sorteadas foram: ') #
 
     for dadoSorteado in dadosSorteados: #vai percorrer dentro da lista dadosSorteados, cada item que encontrar vai para a variavel dadoSorteado
         numFaceDado = random.randint(0, 5) #sorteia uma das 6 faces do dado
 
+        #Se a face sorteada é CEREBRO
         if dadoSorteado[numFaceDado] == "C":
             print('- CÉREBRO (você comeu um cérebro)')
-            cerebros = cerebros + 1
+            cerebros = cerebros + 1 #adiciona variavel contadora dos cérebros no turno atual
+
+        #Se a face sorteada é TIRO
         elif dadoSorteado[numFaceDado] == "T":
             print("- TIRO (você levou um tiro)")
-            tiros = tiros + 1
+            tiros = tiros + 1 #adiciona variavel contadora dos tiros no turno atual
+
+        #Se a face sorteada é PASSOS
         else:
             print("- PASSOS (uma vítima escapou)")
-            passos = passos + 1
+            passos = passos + 1 #adiciona variavel contadora dos passos no turno atual
 
     print('SCORE ATUAL: ')
     print('CÉREBROS: ', cerebros)
     print('TIROS: ', tiros)
-    print('PASSOS: ', passos)
-    break
+    
+    #Pergunta se jogador quer continuar ou anotar seus pontos
+    continuarTurno = input("\nATENÇÃO: Deseja continuar jogando dados? Digite 's' para sim, 'n' para não, depois pressione ENTER:  \n")
 
-print("\n ----------Finalizando Zombie Dice... Obrigado por jogar!-----------")
+    #Fim do turno
+    if continuarTurno.lower() == 'n':
+
+        #Altera o jogador da rodada
+        jogadorAtual = jogadorAtual + 1
+        #Zera os dados sorteados
+        dadosSorteados = []
+
+        #Zera os contadores
+        tiros = 0
+        cerebros = 0
+        passos = 0
+
+        #Se ja há um turno por jogador
+        if jogadorAtual == len(listaJogadores):
+            print("\n ----------Finalizando Zombie Dice... Obrigado por jogar!-----------")
+            break
+
+    else:
+        print("\n----------Iniciando +1 rodada no turno atual------------\n")
+
+        #reinicia os dados sorteados
+        dadosSorteados = []
