@@ -44,7 +44,7 @@ while True:
     print("TURNO DO JOGADOR:  ", listaJogadores[jogadorAtual]) #mostra o jogador da vez
 
     for i in (0, 1, 2): #faça para os 3 dados:
-        numSorteado = random.randint(0, 12) #sorteia um numero de 0 a 12 e armazena em numSorteado
+        numSorteado = random.randint(0, len(listaDados)) #sorteia um numero de 0 a 12 (ou quantidade de dados na lista listaDados) e armazena em numSorteado
         dadoSorteado = listaDados[numSorteado] #puxa a lista de dados, numSorteado vai determinar a cor do dado
 
         if dadoSorteado == 'CPCTPC': #se o dado sorteado for CPCTPC, cor do dado é verde
