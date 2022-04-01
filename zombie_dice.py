@@ -3,19 +3,24 @@
 
 import random
 
-print('ZOMBIE DICE') #exibe o nome do jogo
-print('Seja bem-vindo ao Zombie Dice!') #exibe mensagem de boas vindas
+#Exibe o nome do jogo e mensagem de boas-vindas
+print('ZOMBIE DICE')
+print('Seja bem-vindo ao Zombie Dice!')
 
-numJogadores = 0 #armazena a quantidade de jogadores
-while numJogadores < 2: #solicita a quantidade de jogadores
-    numJogadores = int(input('Informe o número de jogadores: ')) #permite digitar a quantidade de jogadores
+#Armazena a quantidade de jogadores e solicita quantos estão jogando
+numJogadores = 0
+while numJogadores < 2:
+    numJogadores = int(input('Informe o número de jogadores: '))
 
-    if numJogadores < 2: #se numero de jogadores < 2 deve informar a mensagem abaixo
+#se numero de jogadores < 2
+    if numJogadores < 2:
         print('Você precisa de pelo menos 2 jogadores!')
 #por ser um while, caso o if acima for acionado repetirá a função desde o inicio
 
-listaJogadores = [] #inicia lista vazia (servirá para armazenar os jogadores)
-for i in range(numJogadores): #cria range com quantidade de jogadores , cada valor da range ficará na variavel "i"
+#inicia lista vazia (servirá para armazenar os jogadores)
+listaJogadores = []
+#cria range com quantidade de jogadores , cada valor da range ficará na variavel "i"
+for i in range(numJogadores):
     nome = input('Informe o nome do jogador ' + str(i + 1) + ': ') #permite digitar o nome do jogador 1
     listaJogadores.append(nome) #vai repeir o comando acima de acordo com a quantidade de jogadores
 
